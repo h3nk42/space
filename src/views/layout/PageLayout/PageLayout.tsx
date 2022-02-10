@@ -9,6 +9,7 @@ import { AppProps } from "next/app";
 import { BREAKPOINTNAME } from "../../../theme/Breakpoints";
 import { ChooseResponsive } from "../../../lib/responsive/ChooseResponsive";
 import { PADDING } from "../../../theme/LayoutSizes";
+import { COLOR } from "../../../theme/Color";
 
 export type LayoutProps = {
   router: AppProps["router"];
@@ -36,6 +37,7 @@ export const PageLayout: FC<LayoutProps> = (props) => {
           defaultComponent={
             <>
               <BackgroundDesktop />
+              <Box w={"100%"} h={300} bgColor={COLOR.foreground2} />
               <Background2Desktop />
             </>
           }
@@ -43,6 +45,7 @@ export const PageLayout: FC<LayoutProps> = (props) => {
             [BREAKPOINTNAME.sm]: (
               <>
                 <BackgroundMobile />
+                <Box w={"100%"} h={100} bgColor={COLOR.foreground2} />
                 <Background2Mobile />
               </>
             ),
