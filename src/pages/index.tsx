@@ -1,5 +1,5 @@
-import { Box, Container, useColorModeValue } from "@chakra-ui/react";
-import { COLOR, COLORNAME } from "../theme/Color";
+import { Box, Container } from "@chakra-ui/react";
+import { COLOR } from "../theme/Color";
 import { Text } from "../views/atoms/Text/Text";
 import { TYPO } from "../theme/Typo";
 import { Blob } from "../views/atoms/animations/Blob/Blob";
@@ -19,7 +19,7 @@ const IndexPage = () => {
       // @ts-ignore
       align={"center"}
     >
-      <Box pt={PADDING.lg * 3}>
+      <Box pt={PADDING.lg}>
         <Text color={COLOR.white} typo={TYPO.hero}>
           HENK VAN DER SLOOT
         </Text>

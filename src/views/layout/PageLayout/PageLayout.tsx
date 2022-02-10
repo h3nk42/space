@@ -1,14 +1,13 @@
 import { Box, Container } from "@chakra-ui/react";
 import { FC } from "react";
 import Head from "next/head";
-import BackgroundDesktop from "../../../assets/desktop/background/layered-waves-haikei.svg";
-import BackgroundMobile from "../../../assets/mobile/background/layered-waves-haikei-mobile.svg";
+import BackgroundDesktop from "../../../assets/desktop/background/background1.svg";
+import Background2Desktop from "../../../assets/desktop/background/background2.svg";
+import BackgroundMobile from "../../../assets/mobile/background/background1.svg";
+import Background2Mobile from "../../../assets/mobile/background/background2.svg";
 import { AppProps } from "next/app";
 import { BREAKPOINTNAME } from "../../../theme/Breakpoints";
 import { ChooseResponsive } from "../../../lib/responsive/ChooseResponsive";
-import Lottie, { LottieProps } from "react-lottie";
-import BlobAnimation from "../../../assets/shared/animations/blob-lottie.json";
-import { Blob } from "../../atoms/animations/Blob/Blob";
 import { PADDING } from "../../../theme/LayoutSizes";
 
 export type LayoutProps = {
@@ -19,7 +18,6 @@ export const PageLayout: FC<LayoutProps> = (props) => {
   return (
     <Box as={"main"}>
       <Head>
-        <script src="https://cdn.jsdelivr.net/npm/kute.js@2.2.2/kute.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Henk - Home</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,19 +31,25 @@ export const PageLayout: FC<LayoutProps> = (props) => {
           rel="stylesheet"
         />
       </Head>
-      <Box
-        overflow={"hidden"}
-        height={"100vh"}
-        width={"100vw"}
-        position={"absolute"}
-        zIndex={-1}
-      >
+      <Box height={"auto"} width={"100vw"} position={"absolute"} zIndex={-1}>
         <ChooseResponsive
-          defaultComponent={<BackgroundDesktop />}
-          breakpointComponents={{ [BREAKPOINTNAME.sm]: <BackgroundMobile /> }}
+          defaultComponent={
+            <>
+              <BackgroundDesktop />
+              <Background2Desktop />
+            </>
+          }
+          breakpointComponents={{
+            [BREAKPOINTNAME.sm]: (
+              <>
+                <BackgroundMobile />
+                <Background2Mobile />
+              </>
+            ),
+          }}
         />
       </Box>
-      <Container maxW="container.md" pt={PADDING.lg}>
+      <Container maxW="container.md" pt={PADDING.lg} overflow={"hidden"}>
         {props.children}
       </Container>
     </Box>
