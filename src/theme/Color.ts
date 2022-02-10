@@ -20,7 +20,7 @@ export type ColorName = keyof typeof COLORNAME;
 export const COLOR = {
   [COLORNAME.background1]: "#293C4A",
   [COLORNAME.background2]: "#42647C",
-  [COLORNAME.foreground1]: "#4487B8",
+  [COLORNAME.foreground1]: "#42647C",
   [COLORNAME.foreground2]: "#679CC2",
   [COLORNAME.foreground3]: "#2F678F",
   [COLORNAME.background1_dark]: "#293C4A",
