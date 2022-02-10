@@ -15,14 +15,6 @@ type ChooseResponsiveProps = {
 export const ChooseResponsive: React.FC<ChooseResponsiveProps> = (props) => {
   const { breakpointComponents, defaultComponent } = props;
 
-  const returnDefaultIfUndefined = (component: ReactElement) => {
-    if (component != undefined) {
-      return component;
-    } else {
-      return defaultComponent;
-    }
-  };
-
   return (
     <>
       <Media between={[BREAKPOINTNAME.sm, BREAKPOINTNAME.md]}>

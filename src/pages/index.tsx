@@ -1,20 +1,61 @@
-import { Container, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { Box, Container, useColorModeValue } from "@chakra-ui/react";
 import { COLOR, COLORNAME } from "../theme/Color";
-import { Media } from "../lib/responsive/Media";
+import { Text } from "../views/atoms/Text/Text";
+import { TYPO } from "../theme/Typo";
+import { Blob } from "../views/atoms/animations/Blob/Blob";
+import { PADDING } from "../theme/LayoutSizes";
+import { ChooseResponsive } from "../lib/responsive/ChooseResponsive";
+import { BREAKPOINTNAME } from "../theme/Breakpoints";
 
 const IndexPage = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Container
-      bgColor={useColorModeValue(
+      /*bgColor={useColorModeValue(
         COLOR[COLORNAME.background2],
         COLOR[COLORNAME.foreground1]
-      )}
+      )}*/
       borderRadius={10}
-      /* height={500}
-      width={500}*/
+      mb={16}
+      // @ts-ignore
+      align={"center"}
     >
-      Test
+      <Box pt={PADDING.lg * 3}>
+        <Text color={COLOR.white} typo={TYPO.hero}>
+          HENK VAN DER SLOOT
+        </Text>
+      </Box>
+      <ChooseResponsive
+        defaultComponent={
+          <Box
+            position={"absolute"}
+            left={0}
+            right={0}
+            top={16}
+            zIndex={-1}
+            marginLeft={"auto"}
+            marginRight={"auto"}
+            width={500}
+          >
+            <Blob size={500} />
+          </Box>
+        }
+        breakpointComponents={{
+          [BREAKPOINTNAME.sm]: (
+            <Box
+              position={"absolute"}
+              left={0}
+              right={0}
+              top={16}
+              zIndex={-1}
+              marginLeft={"auto"}
+              marginRight={"auto"}
+              width={250}
+            >
+              <Blob size={250} />
+            </Box>
+          ),
+        }}
+      />
     </Container>
   );
 };

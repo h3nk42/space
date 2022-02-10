@@ -12,7 +12,7 @@ const theme = extendTheme({
       // styles for the `body`
       body: {
         bg: mode(
-          COLOR[COLORNAME.foreground1],
+          COLOR[COLORNAME.foreground2],
           COLOR[COLORNAME.background1_dark]
         )(props),
         color: "white",

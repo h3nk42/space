@@ -38,5 +38,6 @@ export const TYPO = {
   },
 } as const;
 
-export type Typo = keyof typeof TYPO;
+export type Typo = typeof TYPO[TypoName];
+
 export const Typos = Object.keys(TYPO);

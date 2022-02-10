@@ -25,12 +25,14 @@ export const COLOR = {
   [COLORNAME.foreground3]: "#2F678F",
   [COLORNAME.background1_dark]: "#293C4A",
   [COLORNAME.background2_dark]: "#42647C",
-  [COLORNAME.foreground3_dark]: "#4487B8",
-  [COLORNAME.foreground3_dark]: "#679CC2",
+  [COLORNAME.foreground1_dark]: "#4487B8",
+  [COLORNAME.foreground2_dark]: "#679CC2",
   [COLORNAME.foreground3_dark]: "#2F678F",
   [COLORNAME.white]: "#FFFFFF",
   [COLORNAME.black]: "#000000",
 } as const;
+
+export type ColorValue = typeof COLOR[ColorName];
 
 // 2. Add your color mode config
 const config: ThemeConfig = {

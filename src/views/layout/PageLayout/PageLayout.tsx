@@ -4,9 +4,12 @@ import Head from "next/head";
 import BackgroundDesktop from "../../../assets/desktop/background/layered-waves-haikei.svg";
 import BackgroundMobile from "../../../assets/mobile/background/layered-waves-haikei-mobile.svg";
 import { AppProps } from "next/app";
-import { Media } from "../../../lib/responsive/Media";
-import { BREAKPOINT, BREAKPOINTNAME } from "../../../theme/Breakpoints";
+import { BREAKPOINTNAME } from "../../../theme/Breakpoints";
 import { ChooseResponsive } from "../../../lib/responsive/ChooseResponsive";
+import Lottie, { LottieProps } from "react-lottie";
+import BlobAnimation from "../../../assets/shared/animations/blob-lottie.json";
+import { Blob } from "../../atoms/animations/Blob/Blob";
+import { PADDING } from "../../../theme/LayoutSizes";
 
 export type LayoutProps = {
   router: AppProps["router"];
@@ -16,6 +19,7 @@ export const PageLayout: FC<LayoutProps> = (props) => {
   return (
     <Box as={"main"}>
       <Head>
+        <script src="https://cdn.jsdelivr.net/npm/kute.js@2.2.2/kute.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Henk - Home</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,7 +45,7 @@ export const PageLayout: FC<LayoutProps> = (props) => {
           breakpointComponents={{ [BREAKPOINTNAME.sm]: <BackgroundMobile /> }}
         />
       </Box>
-      <Container maxW="container.md" pt={14}>
+      <Container maxW="container.md" pt={PADDING.lg}>
         {props.children}
       </Container>
     </Box>
